@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" modified="2026-10-07T15:53:00.000Z" agent="ChatGPT" version="24.7.17">
+  <diagram id="etl-platform" name="ETL платформа">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ADMINISTRATOR SWIMLANE -->
+        <mxCell id="admin" value="Администратор" style="swimlane;html=1;horizontal=1;startSize=40;rounded=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontStyle=1;fontSize=18;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="30" width="1700" height="470" as="geometry"/>
+        </mxCell>
+
+        <!-- Admin start/end -->
+        <mxCell id="a_start" value="" style="ellipse;html=1;fillColor=#17365d;strokeColor=#17365d;" vertex="1" parent="admin">
+          <mxGeometry x="25" y="190" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="a_end" value="" style="shape=mxgraph.bpmn.event;html=1;fillColor=#17365d;strokeColor=#17365d;" vertex="1" parent="admin">
+          <mxGeometry x="1630" y="190" width="34" height="34" as="geometry"/>
+        </mxCell>
+
+        <!-- Admin actions -->
+        <mxCell id="a1" value="Создать репозиторий&#xa;(банк проектов)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="75" y="160" width="155" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="a2" value="Настроить права&#xa;доступа к репозиторию" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="255" y="160" width="170" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="a3" value="Создать рабочий&#xa;набор (проект)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="450" y="160" width="165" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- Graph subprocess -->
+        <mxCell id="graph_group" value="Формирование графа вычислений в рабочей области" style="swimlane;html=1;rounded=1;dashed=1;dashPattern=6 4;fillColor=#f7fbff;strokeColor=#1976d2;fontStyle=1;fontSize=14;startSize=35;" vertex="1" parent="admin">
+          <mxGeometry x="640" y="70" width="420" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="a4" value="Выбрать трансформеры,&#xa;читатели и приёмники&#xa;из каталога" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=13;" vertex="1" parent="graph_group">
+          <mxGeometry x="25" y="55" width="180" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="a5" value="Разместить узлы&#xa;в рабочей области" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=13;" vertex="1" parent="graph_group">
+          <mxGeometry x="25" y="135" width="180" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a6" value="Соединить узлы&#xa;(построить ацикличный граф)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=13;" vertex="1" parent="graph_group">
+          <mxGeometry x="25" y="210" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="a7" value="Граф корректен&#xa;и ацикличен?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f1eaff;strokeColor=#6842a5;fontSize=13;" vertex="1" parent="graph_group">
+          <mxGeometry x="245" y="135" width="145" height="85" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="a8" value="Компилировать&#xa;проект" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="1100" y="160" width="155" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="a9" value="Выбрать версию графа&#xa;как основу для пользователей" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="1280" y="160" width="190" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="a10" value="Добавить рабочий&#xa;набор в репозиторий" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf4ff;strokeColor=#1976d2;fontSize=14;" vertex="1" parent="admin">
+          <mxGeometry x="1495" y="160" width="120" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- Admin edges -->
+        <mxCell id="ae1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a_start" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a1" target="a2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a2" target="a3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a3" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="graph_group" source="a4" target="a5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="graph_group" source="a5" target="a6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="graph_group" source="a6" target="a7"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae8" value="Нет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="graph_group" source="a7" target="a4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae9" value="Да" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a7" target="a8"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a8" target="a9"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a9" target="a10"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ae12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#17365d;" edge="1" parent="admin" source="a10" target="a_end"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- USER SWIMLANE -->
+        <mxCell id="user" value="Пользователь" style="swimlane;html=1;horizontal=1;startSize=40;rounded=1;fillColor=#effcf8;strokeColor=#00a88f;fontStyle=1;fontSize=18;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="540" width="1700" height="470" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u_start" value="" style="ellipse;html=1;fillColor=#164e63;strokeColor=#164e63;" vertex="1" parent="user">
+          <mxGeometry x="25" y="190" width="30" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="u_end" value="" style="shape=mxgraph.bpmn.event;html=1;fillColor=#164e63;strokeColor=#164e63;" vertex="1" parent="user">
+          <mxGeometry x="1630" y="190" width="34" height="34" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="u1" value="Выбрать репозиторий&#xa;и проект" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="75" y="160" width="165" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="u2" value="Доступ&#xa;есть?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f1eaff;strokeColor=#6842a5;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="275" y="150" width="120" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="u3" value="Запросить доступ&#xa;у администратора" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=13;" vertex="1" parent="user">
+          <mxGeometry x="245" y="55" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="u4" value="Просмотреть&#xa;и запустить граф" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="445" y="160" width="165" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="u5" value="Выполнение&#xa;процесса" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="650" y="160" width="165" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="u6" value="Выполнен&#xa;успешно?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f1eaff;strokeColor=#6842a5;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="850" y="150" width="125" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="u7" value="Просмотр логов&#xa;и диагностика" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=13;" vertex="1" parent="user">
+          <mxGeometry x="825" y="55" width="175" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="u8" value="Результат&#xa;доступен" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="1030" y="160" width="150" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="u9" value="Использовать&#xa;данные дальше?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f1eaff;strokeColor=#6842a5;fontSize=14;" vertex="1" parent="user">
+          <mxGeometry x="1230" y="150" width="150" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="u10" value="Доступ к данным&#xa;(БД, файлы, API и др.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=13;" vertex="1" parent="user">
+          <mxGeometry x="1430" y="160" width="175" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="u11" value="Выйти из проекта" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#effcf8;strokeColor=#00a88f;fontSize=13;" vertex="1" parent="user">
+          <mxGeometry x="1230" y="300" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- User edges -->
+        <mxCell id="ue1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u_start" target="u1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u1" target="u2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue3" value="Нет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u2" target="u3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue4" value="Повторная проверка" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u3" target="u2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue5" value="Да" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u2" target="u4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u4" target="u5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u5" target="u6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue8" value="Нет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u6" target="u7"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue9" value="Повторный запуск / исправление" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u7" target="u5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue10" value="Да" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u6" target="u8"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u8" target="u9"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue12" value="Да" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u9" target="u10"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue13" value="Нет" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u9" target="u11"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u10" target="u_end"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ue15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;strokeColor=#164e63;" edge="1" parent="user" source="u11" target="u_end"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Условные обозначения:  прямоугольник — действие / процесс     ромб — условие / решение     круг — начало / конец     стрелка — переход" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8f9fa;strokeColor=#9aa7b2;fontSize=13;align=left;spacingLeft=15;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1030" width="1700" height="70" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
